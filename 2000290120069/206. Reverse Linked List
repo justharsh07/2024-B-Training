@@ -1,0 +1,18 @@
+Ques:
+Given the head of a singly linked list, reverse the list, and return the reversed list.
+soln:
+class Solution {
+public:
+    ListNode* solve(ListNode* head) {
+        if(head==NULL||head->next==NULL){
+            return head;
+        }
+        ListNode* rh=solve(head->next);
+        head->next->next=head;
+        head->next=NULL;
+        return rh;
+    }
+    ListNode* reverseList(ListNode* head) {
+        return solve(head);
+    }
+};
